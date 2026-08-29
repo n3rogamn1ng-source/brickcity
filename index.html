@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brik</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: Arial, sans-serif;
+            user-select: none;
+        }
+
+        #ui-bar {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            display: flex;
+            gap: 6px;
+            z-index: 100;
+        }
+
+        .btn {
+            background: #e0e0e0;
+            color: #000;
+            border: 1px solid #777;
+            padding: 4px 10px;
+            border-radius: 2px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+        }
+
+        .btn:active {
+            background: #ccc;
+        }
+
+        #help-text {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: right;
+            pointer-events: none;
+            display: none;
+            z-index: 100;
+        }
+
+        #dye-bar {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 0;
+            z-index: 100;
+        }
+
+        .dye-swatch {
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
+        .dye-swatch:hover {
+            outline: 2px solid #000;
+            transform: scale(1.15);
+            z-index: 2;
+        }
+
+        .dye-swatch.active {
+            outline: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui-bar">
+        <button id="save-btn" class="btn">Save .toy</button>
+        <button id="load-btn" class="btn">Load .toy</button>
+        <div style="display: flex; align-items: center; gap: 5px; background: #e0e0e0; border: 1px solid #777; border-radius: 2px; padding: 4px 8px; font-size: 12px; height: 16px;">
+            <label for="opacity-slider" style="cursor: pointer;">Transparency:</label>
+            <input type="range" id="opacity-slider" min="0.1" max="1.0" step="0.1" value="1.0" style="width: 80px; margin: 0; cursor: pointer;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 5px; background: #e0e0e0; border: 1px solid #777; border-radius: 2px; padding: 4px 8px; font-size: 12px; height: 16px;">
+            <label for="texture-checkbox" style="cursor: pointer;">Texture:</label>
+            <input type="checkbox" id="texture-checkbox" checked style="margin: 0; cursor: pointer;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 5px; background: #e0e0e0; border: 1px solid #777; border-radius: 2px; padding: 4px 8px; font-size: 12px; height: 16px;">
+            <label for="size-preset" style="cursor: pointer;">Size:</label>
+            <select id="size-preset" style="font-size: 11px; cursor: pointer; border: 1px solid #777; border-radius: 1px; background: #fff;">
+                <option value="2x4">2x4</option>
+                <option value="2x2">2x2</option>
+                <option value="1x2">1x2</option>
+                <option value="1x1">1x1</option>
+                <option value="1x3">1x3</option>
+                <option value="1x4">1x4</option>
+                <option value="1x6">1x6</option>
+                <option value="1x8">1x8</option>
+                <option value="2x3">2x3</option>
+                <option value="2x6">2x6</option>
+                <option value="2x8">2x8</option>
+                <option value="2x10">2x10</option>
+                <option value="4x4">4x4</option>
+                <option value="4x6">4x6</option>
+                <option value="4x8">4x8</option>
+                <option value="6x6">6x6</option>
+                <option value="8x8">8x8</option>
+            </select>
+        </div>
+    </div>
+    <div id="dye-bar"></div>
+    <div id="help-text">
+        Shift-Click : Multi-Select<br>
+        B : Spawn Brick<br>
+        N : Spawn Ball<br>
+        M : Spawn Wedge<br>
+        F : Spin (Yaw)<br>
+        Shift+F : Flip (Pitch)<br>
+        Alt+F / G : Rotate Side-to-Side (Roll)<br>
+        Ctrl+D : Duplicate Selection<br>
+        Ctrl+Z : Undo<br>
+        Ctrl+Y : Redo<br>
+        Del : Delete Selection<br>
+        Right-Click + WASD : Fly
+    </div>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>

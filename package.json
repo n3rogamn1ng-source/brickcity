@@ -1,0 +1,23 @@
+{
+  "name": "brik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cam.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.174.0",
+    "three-pivot-controls": "^0.1.6",
+    "vite": "^6.2.0",
+    "fengari": "^0.1.4",
+    "fengari-interop": "^0.1.3"
+  }
+}
